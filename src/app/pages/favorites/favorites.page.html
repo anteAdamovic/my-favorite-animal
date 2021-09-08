@@ -21,9 +21,15 @@
     </ion-item-sliding>
   </ion-list>
   <div *ngIf="!favoriteAnimals || (favoriteAnimals && !favoriteAnimals.length)">
-    <img src="/assets/dog-digging.gif">
+    <img class="not-found-image" src="/assets/dog-digging.gif">
     <ion-text>
       <p>Oooops ... couldn't find any favorites, add some first!</p>
+      <!-- <ion-button class="not-found-button">
+        <ion-label>All Animals</ion-label>
+      </ion-button> -->
+      <ion-tab-button class="not-found-button" tab="animals">
+        <ion-label>All Animals</ion-label>
+      </ion-tab-button>
     </ion-text>
   </div>
 </ion-content>
