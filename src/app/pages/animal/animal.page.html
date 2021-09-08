@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="navigateBack()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>{{animal.Name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="animal-image" [style.background-image]="'url(' + animal.Image + ')'"></div>
+  <ion-item-group *ngIf="animal.Food">
+    <ion-list-header>Likes:</ion-list-header>
+    <ion-chip *ngFor="let food of animal.Food.Likes">
+      <ion-label color="primary">{{food}}</ion-label>
+    </ion-chip>   
+    <ion-list-header>Dislikes:</ion-list-header>
+    <ion-chip *ngFor="let food of animal.Food.Dislikes">
+      <ion-label color="danger">{{food}}</ion-label>
+    </ion-chip> 
+  </ion-item-group>
+  <ion-button class="favorite-toggle-button" *ngIf="!isFavorite()" (click)="setFavorite()">
+    <ion-icon name="star"></ion-icon>
+    <ion-label>Favorite</ion-label>
+  </ion-button>
+  <ion-button class="favorite-toggle-button" *ngIf="isFavorite()" (click)="removeFavorite()">
+    <ion-icon name="star-outline"></ion-icon>
+    <ion-label>Unfavorite</ion-label>
+  </ion-button>
+</ion-content>

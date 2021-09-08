@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title text-center>Favorites</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="favoriteAnimals && favoriteAnimals.length">
+    <ion-item-sliding *ngFor="let animal of favoriteAnimals">
+      <ion-item (click)="showAnimal(animal)">
+        <ion-avatar slot="start">
+          <img src="{{animal.Image}}">
+        </ion-avatar>
+        <ion-label>{{animal.Name}}</ion-label>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option (click)="removeFavorite(animal.Name)">
+          <ion-icon name="star"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  <div *ngIf="!favoriteAnimals || (favoriteAnimals && !favoriteAnimals.length)">
+    <img src="/assets/dog-digging.gif">
+    <ion-text>
+      <p>Oooops ... couldn't find any favorites, add some first!</p>
+    </ion-text>
+  </div>
+</ion-content>

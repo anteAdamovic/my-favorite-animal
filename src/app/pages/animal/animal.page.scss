@@ -1,0 +1,22 @@
+.animal-image {
+    width: 100%;
+    height: 30vh;
+    background-position: center;
+    background-size: cover;
+}
+
+ion-item-group {
+    margin: auto 10px;
+}
+
+ion-list-header {
+    font-size: 16px;
+    padding-left: 10px;
+}
+
+.favorite-toggle-button {
+    position: absolute;
+    bottom: 20px;
+    width: 70%;
+    margin: 0 15%;
+}
